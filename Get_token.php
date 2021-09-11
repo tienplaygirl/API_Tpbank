@@ -33,5 +33,8 @@ function get_token($username, $password)
 
     $resp = curl_exec($curl);
     curl_close($curl);
-    return $resp;
+    //xử lý chỉ lấy token
+    $json = json_decode($resp, true);
+    $access_token = $json['access_token'];
+    return $access_token;
 }
